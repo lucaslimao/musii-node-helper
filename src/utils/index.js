@@ -5,6 +5,8 @@ const logger = require('../logger/index')
 
 const logPrefix = '[Utils]'
 
+const SECRET_KEY = config.has('token.secret') ? config.get('token.secret') : ''
+
 const hash = (value) => {
 
     try {
@@ -30,7 +32,7 @@ const token = () => {
                     `${logPrefix}[Token]; Gerando token; `,
                 )
 
-                return await jwt.sign({ [key]: value }, config.get('token.secret'), {
+                return await jwt.sign({ [key]: value }, SECRET_KEY, {
                     expiresIn: 86400
                 });
 
@@ -43,7 +45,7 @@ const token = () => {
 
             try {
 
-                return await jwt.verify(token, config.get('token.secret'), (err, decoded) => {
+                return await jwt.verify(token, SECRET_KEY, (err, decoded) => {
             
                     if (err) {
                         return res

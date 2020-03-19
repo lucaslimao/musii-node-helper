@@ -2,7 +2,7 @@ const axios = require('axios')
 const config = require('config')
 const logger = require('../../logger/index')
 
-const URI = config.get('integration.user')
+const URI = config.has('integration.use') ? config.get('integration.user') : ''
 
 const logPrefix = '[Integration User]'
 
