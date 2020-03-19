@@ -1,0 +1,17 @@
+{
+    "logger": {
+        "console": {
+            "level": "silly"
+        },
+        "file": {
+            "level": "error",
+            "path": "./musii-post-microservice.log"
+        }
+    },
+    "token": {
+        "secret": "testesecret"
+    },
+    "integration": {
+        "user": "http://localhost:3000"
+    }
+}
