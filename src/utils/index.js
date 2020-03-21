@@ -48,9 +48,7 @@ const token = () => {
                 return await jwt.verify(token, SECRET_KEY, (err, decoded) => {
             
                     if (err) {
-                        return res
-                            .status(500)
-                            .send({ auth: false, message: 'Failed to authenticate token.' })
+                        throw new Error(`[Util][Token]:: Failed to authenticate token.`)
                     }
 
                     return decoded.id
