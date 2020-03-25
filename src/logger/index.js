@@ -30,9 +30,9 @@ const transports = [
             process.env.NODE_ENV === "production"
                 ? winston.format.combine(winston.format.simple())
                 : winston.format.combine(
-                      winston.format.colorize(),
-                      winston.format.simple()
-                  )
+                    winston.format.colorize(),
+                     winston.format.simple()
+                )
     })
 ];
 

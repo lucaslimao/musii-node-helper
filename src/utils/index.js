@@ -45,6 +45,10 @@ const token = () => {
 
             try {
 
+                logger.info(
+                    `${logPrefix}[Token]; Verificando token, ${token}, secretKeyEmpty: ${SECRET_KEY === ''} `,
+                )
+
                 return await jwt.verify(token, SECRET_KEY, (err, decoded) => {
             
                     if (err) {
