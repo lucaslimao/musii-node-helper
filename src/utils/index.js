@@ -33,8 +33,8 @@ const token = () => {
                 )
 
                 return await jwt.sign({ [key]: value }, SECRET_KEY, {
-                    expiresIn: 86400
-                });
+                    // expiresIn: 86400
+                })
 
             } catch (error) {
                 throw new Error(`[Util][Token]:: ${error.message}`)
