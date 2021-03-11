@@ -1,6 +1,6 @@
 {
-  "name": "musii-node-helper",
-  "version": "0.0.8",
+  "name": "@musii.app/musii-node-helper",
+  "version": "0.0.9",
   "description": "Helpers Functions",
   "main": "src/index.js",
   "scripts": {

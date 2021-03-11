@@ -1,7 +1,9 @@
 const pino = require('pino')
 
 const logger = pino({
-    prettyPrint: true
+    prettyPrint: {
+        ignore: 'pid,hostname'
+    }
 })
 
 module.exports = logger
