@@ -3,17 +3,20 @@ const helpers = require('../src/index')
 
 describe('Utils', () => {
 
-    it('Hash', () => {
+    it('Token sign', async () => {
 
-        const hash = helpers.utils.hash('teste')
-        chai.assert.equal(hash, 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af')
+        const token = await helpers.utils.token().get('id', '123')
+        chai.assert.isString(token, 'Undefined Token')
 
     })
 
-    it('Token', async () => {
+    it('Token verify', async () => {
 
-        const token = await helpers.utils.token().get('_id', 'teste')
-        chai.assert.isString(token, 'Undefined Token')
+        const token = await helpers.utils.token().get('id', '123')
+
+        const id = await helpers.utils.token().verify(token)
+        
+        chai.assert.isString(id, 'Undefined Token')
 
     })
 
@@ -38,16 +41,6 @@ describe('Logger', () => {
 
     it('Error', () => {
         chai.assert.isFunction(helpers.logger.error, 'Error Not Defined')        
-    })
-
-})
-
-describe('Integration', () => {
-
-    it('User', async () => {
-
-        // const { status } = await helpers.integration.user.find(1) 
-
     })
 
 })
